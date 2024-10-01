@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patients List</title>
+</head>
+<body>
+    <h1>Patients</h1>
+    <form action="/patients/filter" method="GET">
+        <input type="text" name="first_name" placeholder="Enter first name" required>
+        <button type="submit">Filter</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Patient ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Date of Birth</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (results.length > 0) { %>
+                <% results.forEach(patient => { %>
+                    <tr>
+                        <td><%= patient.patient_id %></td>
+                        <td><%= patient.first_name %></td>
+                        <td><%= patient.last_name %></td>
+                        <td><%= patient.date_of_birth %></td>
+                    </tr>
+                <% }); %>
+            <% } else { %>
+                <tr>
+                    <td colspan="4">No patients found.</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>

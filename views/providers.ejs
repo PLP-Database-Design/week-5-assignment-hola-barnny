@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Providers List</title>
+</head>
+<body>
+    <h1>Providers</h1>
+    <form action="/providers/specialty" method="GET">
+        <input type="text" name="specialty" placeholder="Enter specialty" required>
+        <button type="submit">Filter</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Specialty</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (results.length > 0) { %>
+                <% results.forEach(provider => { %>
+                    <tr>
+                        <td><%= provider.first_name %></td>
+                        <td><%= provider.last_name %></td>
+                        <td><%= provider.provider_specialty %></td>
+                    </tr>
+                <% }); %>
+            <% } else { %>
+                <tr>
+                    <td colspan="3">No providers found.</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>

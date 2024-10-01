@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital API</title>
+</head>
+<body>
+    <h1>Welcome to the Hospital Database API</h1>
+    <p>Use the links below to view data:</p>
+    <ul>
+        <li><a href="/patients">View All Patients</a></li>
+        <li><a href="/providers">View All Providers</a></li>
+        <li>
+            <form action="/patients/filter" method="get">
+                <label for="first_name">Filter Patients by First Name:</label>
+                <input type="text" name="first_name" id="first_name" required>
+                <button type="submit">Search</button>
+            </form>
+        </li>
+        <li>
+            <form action="/providers/specialty" method="get">
+                <label for="specialty">Filter Providers by Specialty:</label>
+                <input type="text" name="specialty" id="specialty" required>
+                <button type="submit">Search</button>
+            </form>
+        </li>
+    </ul>
+</body>
+</html>
